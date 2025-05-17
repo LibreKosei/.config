@@ -1,0 +1,9 @@
+{
+    "name": "astal-shell",
+    "dependencies": {
+        "astal": "/home/kosei/.local/share/ags"
+    },
+    "devDependencies": {
+        "typescript": "^5.7.3"
+    }
+}

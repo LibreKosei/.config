@@ -1,0 +1,96 @@
+@use 'sass:color';
+@use "colors" as *;
+
+$overlay-color: $on-primary;
+
+window.Bar {
+    background: transparentize($color: $surface, $amount: 0.8);
+    padding: 0 16px;
+
+    label {
+        color: $on-surface;
+    }
+
+    applet {
+        background: $primary;
+        color: $on-primary;
+        border-radius: 24px;
+        padding: 6px;
+        label {
+            color: $on-primary;
+        }
+    }
+
+    box {
+        > applet {
+            margin: 0 10px;
+        }
+    }
+
+    workspaces {
+        background-color: $surface-variant;
+        border-radius: 1rem;
+        padding: 1rem 0;
+        ws {
+            font-size: 0;
+            margin: 0 0.25rem;
+            background-color: $outline;
+            min-width: 0.6rem;
+            min-height: 0.6rem;
+            border-radius: 0.3rem;
+
+            &.active {
+                background-color: $primary;
+                min-width: 1.2rem;
+            }
+
+            &.occupied {
+                background-color: $secondary;
+            }
+        }
+    }
+    workspace {
+        background: $surface-container;
+        border-radius: 24px;
+        padding: 6px;
+        color: $primary;
+    }
+    
+    tooltip {
+        color: $inverse-surface;
+    }
+
+    battery {
+        margin-left: 1em;    
+        border-radius: 1em;
+        color: $on-surface;
+
+        label {
+            color: $on-surface;
+            margin-right: 0.5rem;
+        }
+    }
+    levelbar {
+        margin: 0.5rem 0;
+        trough {
+
+            & .filled {
+                border-radius: 0.5em;
+                background-color: $primary;
+            }
+
+            & .filled.medium {
+                background-color: $secondary;
+            }
+
+            & .filled.my-low, .filled.low {
+                background-color: $error-container;
+            }
+
+            & .empty {
+                border-radius: 1em;
+                background-color: $surface-variant;
+            }
+        }
+    }
+}

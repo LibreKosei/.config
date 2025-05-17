@@ -1,0 +1,13 @@
+@use "bar";
+@use "applauncher";
+@use "notif";
+@use "menu";
+
+* {
+    all: unset;
+}
+
+material {
+    font-family: "Material Symbols Outlined";
+    font-size: 24px;
+}

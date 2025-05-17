@@ -1,0 +1,20 @@
+[config]
+version_check = false
+
+# [config.wallpaper]
+# command = "swww"
+# arguments = ["img", "--transition-type", "center"]
+# set = true
+
+[templates.ags]
+input_path = "./ags"
+output_path = "./../ags/style/colors.scss"
+
+[templates.foot]
+input_path = "./foot-color.ini"
+output_path = "./../foot/foot-color.ini"
+
+[templates.hypr]
+input_path = "./hyprland-color.conf"
+output_path = "./../hypr/hyprland-color.conf"
+post_hook = 'hyprctl reload'
