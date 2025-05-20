@@ -30,6 +30,7 @@ export const WifiIndicator = () => {
                           self.label = "signal_wifi_off"
                           self.tooltipText = "Disabled"
                       }
+                      if (!wifi.ssid) self.label = "signal_wifi_off"
                   })
               }}
               onHoverEnter={() => reveal.set(true)}

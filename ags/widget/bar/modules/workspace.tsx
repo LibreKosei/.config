@@ -2,8 +2,6 @@ import Hyprland from "gi://AstalHyprland";
 import { execAsync } from "astal";
 import { Gtk, hook } from "astal/gtk4";
 
-const hypr = Hyprland.get_default()
-
 function dispatch(ws: number) {
     execAsync(`hyprctl dispatch workspace ${ws}`);
 }
@@ -16,7 +14,8 @@ export const Workspaces = () => {
     const hypr = Hyprland.get_default()
 
     return <box cssName="workspaces">
-    {range(9).map(i => 
+    {range(9).map(i =>
+        <button onClicked={() => dispatch(i)}>
         <label
             valign={Gtk.Align.CENTER}
             cssName="ws"
@@ -34,6 +33,7 @@ export const Workspaces = () => {
             }}
             label={i.toString()}
         />
+        </button>
     )}
     </box>
 }

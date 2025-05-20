@@ -75,9 +75,8 @@ window#launcher {
 }
 
 window#applauncher {
-    background-color: $surface-container;
+    background-color: $surface-container-highest;
     padding: 1rem;
-    border: solid 1px $inverse-on-surface;
     border-radius: 1rem;
 
     entry {
