@@ -30,6 +30,7 @@ App.start({
             exec(`sass ${scss} ${css}`)
             App.reset_css()
             App.apply_css(css)
+            windowAnimation()
         })
         
         monitorSwww()
