@@ -1,0 +1,8 @@
+*
+!.gigignore
+!/foot/
+!/hypr/
+!/matugen/
+!/waypaper/
+!/quickshell/
+!/quickshell/**
