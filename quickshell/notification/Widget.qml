@@ -108,6 +108,8 @@ Rectangle {
                     text: root.n.summary
                     color: Color.palette.on_surface
                     font.pixelSize: 16
+                    elide: Text.ElideRight
+                    Layout.fillWidth: true
                 }
 
                 Text {
