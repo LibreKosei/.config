@@ -1,5 +1,4 @@
 import Quickshell
-import QtQuick.Effects
 import Quickshell.Services.Notifications
 import Quickshell.Widgets
 import QtQuick
@@ -44,7 +43,7 @@ Rectangle {
 
             IconImage {
                 id: sender
-                source: Quickshell.iconPath(root.n.appIcon)
+                source: Quickshell.iconPath(root.n.appIcon, "notification-symbolic")
                 implicitSize: 24
                 asynchronous: true
                 visible: root.n.appIcon != ""
