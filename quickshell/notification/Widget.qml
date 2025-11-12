@@ -26,6 +26,7 @@ Rectangle {
         console.log("image path: " + n.image)
         console.log("app icon: " + n.appIcon)
         console.log("app name: " + n.appName)
+        console.log(`${n.hasActionIcons}`)
     }
 
     ColumnLayout {
@@ -88,7 +89,7 @@ Rectangle {
 
             Image {
                 id: image 
-                Layout.alignment: Qt.AlignLeft
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 source: root.n.image
                 fillMode: Image.PreserveAspectCrop
                 Layout.preferredHeight: root.imageSize

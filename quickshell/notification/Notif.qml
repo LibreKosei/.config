@@ -35,6 +35,7 @@ PanelWindow {
 
         imageSupported: true
         actionsSupported: true
+        actionIconsSupported: true
         onNotification: notif => {
             console.log(notif.appName)
             notif.tracked = true
