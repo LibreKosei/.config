@@ -27,13 +27,7 @@ Variants {
         Rectangle {
             id: bar
             anchors.fill: parent
-            anchors.rightMargin: root.screen.width / 8
-            anchors.leftMargin: root.screen.width / 8
-            bottomLeftRadius: 16
-            bottomRightRadius: 16
-            color: Color.palette.surface_container
-            border.color: Color.palette.outline 
-            border.width: 4
+            color: Color.palette.surface_container_highest
 
             RowLayout {
                 anchors.leftMargin: 16 
