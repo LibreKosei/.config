@@ -20,7 +20,7 @@ Singleton {
             console.log(error)
         }
 
-        onLoaded: console.log(root.palette.primary)
+        // onLoaded: console.log(root.palette.primary)
         adapter: jsonColorContent
     }
 
@@ -78,6 +78,6 @@ Singleton {
         property string tertiary_fixed_dim: "#cbc1e9"
         property string useless: ""
 
-        onPrimaryChanged: console.log("Primary property changed!")
+        // onPrimaryChanged: console.log("Primary property changed!")
     }
 }

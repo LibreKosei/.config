@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Services.UPower
 import qs
 import qs.services
 
@@ -15,10 +14,16 @@ Rectangle {
         return root.preferredColor
     }
 
-    implicitWidth: battery.width + p.width
+    implicitWidth: row.implicitWidth
     implicitHeight: row.implicitHeight
     color: "transparent"
 
+    // Component.onCompleted: {
+    //     console.log("battery widget width: " + root.implicitWidth)
+    //     console.log("battery row width: " + row.implicitWidth)
+    //     console.log("battery icon width: " + battery.implicitWidth)
+    //     console.log("battery level width: " + p.implicitWidth)
+    // }
 
     RowLayout {
         id: row
@@ -28,11 +33,12 @@ Rectangle {
 
             text: BatteryService.getIcon()
             Layout.alignment: Qt.AlignCenter
-            size: 24
+            size: 26
             color: root.bColor
         }
 
         Text {
+            font.pixelSize: 12
             id: p
             text: BatteryService.batteryLevel + "%"
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter

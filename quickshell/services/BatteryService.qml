@@ -9,6 +9,23 @@ Singleton {
     readonly property real batteryLevel: Math.round(device?.percentage * 100)
     readonly property bool isCharging: device?.state === UPowerDeviceState.Charging
 
+    function getSvg() {
+        if (isCharging) {
+            return "battery-charging-symbolic"
+        }
+        if (!isCharging) {
+            if (batteryLevel >= 66) {
+                return "battery-full-symbolic"
+            }
+            if (batteryLevel >= 33) {
+                return "battery-medium-symbolic"
+            }
+            if (batteryLevel >= 10) {
+                return "battery-low-symbolic"
+            }
+            return "battery-warning-symbolic"
+        }
+    }
     function getIcon() {
         if (isCharging) {
             if (batteryLevel >= 90) {

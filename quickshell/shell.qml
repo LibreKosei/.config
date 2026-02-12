@@ -1,3 +1,4 @@
+//@ pragma IconTheme Papirus
 import Quickshell // for PanelWindow
 import QtQuick // for Text
 import qs.notification

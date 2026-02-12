@@ -1,4 +1,5 @@
 *
+/quickshell/.qmlls.ini
 /quickshell/settings/colors.json
 /hypr/hyprland-color.conf
 !.gigignore

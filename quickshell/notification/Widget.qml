@@ -44,7 +44,7 @@ Rectangle {
 
             IconImage {
                 id: sender
-                source: Quickshell.iconPath(root.n.appIcon, "notification-symbolic")
+                source: Quickshell.iconPath(root.n.appIcon, "notification-active-symbolic")
                 implicitSize: 24
                 asynchronous: true
                 visible: root.n.appIcon != ""

@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs 
 import qs.services
-
+import qs.common
 Rectangle {
     id: root
     implicitWidth: row.implicitWidth
@@ -14,17 +14,10 @@ Rectangle {
         id: row
         anchors.fill: parent
 
-        Material {
+        MaterialIcon {
             id: wifiIcon
             text: NetworkService.wifiSignalIcon
             color: root.fgColor
         }
-
-        // Text {
-        //     id: wifiSsid
-        //     text: NetworkService.currentWifiSSID
-        //     Layout.alignment: Qt.AlignRight
-        //     color: Color.palette.on_surface
-        // }
     }
 }
