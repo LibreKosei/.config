@@ -11,24 +11,24 @@ Singleton {
 
     readonly property string icon: {
         if (!device) {
-            return "battery-warning"
+            return getIconPath("battery-warning")
         }
         if (isCharging) {
-            return "battery-charging"
+            return getIconPath("battery-charging")
         }
         if (batteryLevel >= 80) {
-            return "battery-full"
+            return getIconPath("battery-full")
         }
         if (batteryLevel >= 33) {
-            return "battery-medium"
+            return getIconPath("battery-medium")
         }
         if (batteryLevel >= 25) {
-            return "battery-low"
+            return getIconPath("battery-low")
         }
         if (batteryLevel >= 15) {
-            return "battery-warning"
+            return getIconPath("battery-warning")
         }
-        return "battery-warning"
+        return getIconPath("battery-warning")
     }
 
     readonly property UPowerDevice device: UPower.devices.values.find(device => device.isLaptopBattery) ?? null

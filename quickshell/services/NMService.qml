@@ -17,15 +17,6 @@ Singleton {
     property WifiNetwork wifi: wDev ? [...wDev.networks.values].find(n => n.connected) ?? null : null
     readonly property real wSignalStrength: Math.round(wifi.signalStrength * 100)
 
-    readonly property var wifiIconName: {
-        if (!root.wifi) return "signal_disconnected"
-
-        if (75 <= root.wSignalStrength) return "android_wifi_3_bar_plus"
-        if (50 <= root.wSignalStrength) return "wifi"
-        if (25 <= root.wSignalStrength) return "wifi_2_bar"
-        return "wifi_1_bar"
-    }
-
     readonly property var icon: {
         if (!root.wifi) return root.iconPath + "ds-wifi-off-symbolic"
 
