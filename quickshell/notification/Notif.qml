@@ -4,11 +4,11 @@ import QtQuick
 import Quickshell.Services.Notifications
 import Quickshell.Wayland
 import QtQuick.Controls
+import qs.config
 
+// qmllint disable uncreatable-type
 PanelWindow {
     id: root
-
-    property bool expanded: false
 
     exclusionMode: ExclusionMode.Normal
     WlrLayershell.layer: WlrLayer.Overlay
@@ -17,19 +17,19 @@ PanelWindow {
     color: "transparent"
     implicitHeight: notificationList.implicitHeight
     implicitWidth: notificationList.implicitWidth
-    Behavior on implicitHeight {
-        NumberAnimation { duration: 150; easing.type: Easing.Linear }
-    }
 
     mask: Region {
         item: notificationList
     }
 
     anchors {
-        top: true
         right: true
+        top: true
     }
-
+    // qmllint disable missing-property unresolved-type unqualified
+    margins.right: 50
+    margins.top: 50
+    // qmllint enable
     NotificationServer {
         id: server 
 
@@ -37,7 +37,6 @@ PanelWindow {
         actionsSupported: true
         actionIconsSupported: true
         onNotification: notif => {
-            console.log(notif.appName)
             notif.tracked = true
         }
     }
@@ -47,28 +46,17 @@ PanelWindow {
 
         model: server.trackedNotifications
         spacing: 12
-        implicitWidth: 400
-        implicitHeight: 600
+        implicitWidth: Appearance.notification.width + 16
+        implicitHeight: Appearance.notification.height * count + spacing * (count)
         clip: true
+        visible: !Appearance.notification.dnd
 
         delegate: Widget {
+            anchors.horizontalCenter: parent.horizontalCenter
             required property Notification modelData
+            required property int index
+            visible: index < 3
             n: modelData
         }
-        add: Transition {
-            NumberAnimation { properties: "opacity"; from: 0; to: 1; duration: 200 }
-            NumberAnimation { properties: "x"; from: width; to: 0; duration: 200; easing.type: Easing.OutCubic }
-        }
-
-        remove: Transition {
-            ParallelAnimation {
-                NumberAnimation { properties: "opacity"; to: 0; duration: 150 }
-                NumberAnimation { properties: "x"; to: width; duration: 200; easing.type: Easing.InCubic }
-            }
-        }
-
-        displaced: Transition {
-            NumberAnimation { properties: "y"; duration: 200; easing.type: Easing.OutQuad }
-        }       
     }
 }

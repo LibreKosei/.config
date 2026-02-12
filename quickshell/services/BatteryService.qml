@@ -4,10 +4,43 @@ import Quickshell.Services.UPower
 
 Singleton {
     id: root
+    
+    function getIconPath(name: string): string {
+        return (Quickshell.shellPath("assets/bat/") + name)
+    }
+
+    readonly property string icon: {
+        if (!device) {
+            return "battery-warning"
+        }
+        if (isCharging) {
+            return "battery-charging"
+        }
+        if (batteryLevel >= 80) {
+            return "battery-full"
+        }
+        if (batteryLevel >= 33) {
+            return "battery-medium"
+        }
+        if (batteryLevel >= 25) {
+            return "battery-low"
+        }
+        if (batteryLevel >= 15) {
+            return "battery-warning"
+        }
+        return "battery-warning"
+    }
 
     readonly property UPowerDevice device: UPower.devices.values.find(device => device.isLaptopBattery) ?? null
     readonly property real batteryLevel: Math.round(device?.percentage * 100)
     readonly property bool isCharging: device?.state === UPowerDeviceState.Charging
+
+    function getNativeIcon() {
+        if (!device) {
+            return "battery-missing-symbolic"
+        }
+        return device.iconName
+    }
 
     function getSvg() {
         if (isCharging) {

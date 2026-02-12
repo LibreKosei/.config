@@ -10,9 +10,31 @@ Singleton {
         objects: [ Pipewire.defaultAudioSink ]
     }
 
+    function getIconPath(): string {
+        return Quickshell.shellPath("assets/audio/") + root.icon;
+    }
+
+    readonly property string icon: {
+        if (root.isReady) {
+            if (root.isMuted) {
+                return "volume-off"
+            }
+            if (volume != null) {
+                if (volume >= 101) {
+                    return "volume-2"
+                }
+                if (volume >= 67) return "volume-1"
+                if (volume >= 1) return "volume"
+                if (volume === 0) return "volume-x"
+            }
+            return "volume-off"
+        }
+        return "volume-off"
+    }
+
     readonly property bool isReady: Pipewire.defaultAudioSink != null ? true : false
     readonly property bool isMuted: isReady ? Pipewire.defaultAudioSink?.audio.muted : false
-    readonly property var volume: isReady ? Math.floor(Pipewire.defaultAudioSink?.audio.volume * 100) : null
+    readonly property var volume: isReady ? Math.min(Math.floor(Pipewire.defaultAudioSink?.audio.volume * 100), 150) : null
 
     onIsReadyChanged: function () {
         return isReady
