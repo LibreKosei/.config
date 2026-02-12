@@ -91,7 +91,7 @@ Rectangle {
                         id: volIcon
                         width: 36 
                         height: 36
-                        source: [AudioService.getIconPath()]
+                        source: [AudioService.icon]
                         iconColor: Everblush.cyan
                     }
                     StyledText {
@@ -109,7 +109,7 @@ Rectangle {
                         id: batIcon
                         width: 36
                         height: 36
-                        source: [BatteryService.getIconPath(BatteryService.icon)]
+                        source: [BatteryService.icon]
                         iconColor: BatteryService.batteryLevel <= 20 ? Everblush.red : 
                            BatteryService.batteryLevel <= 50 ? Everblush.yellow : Everblush.green
                     }
