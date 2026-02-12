@@ -1,16 +1,16 @@
+# ignore all
 *
-quickshell/.qmlls.ini
-/hypr/hyprland-color.conf
+
 !.gigignore
+
+# not ignore these
 !/foot/
 !/foot/**
 !/hypr/
 !/hypr/**
-!/matugen/
-!/matugen/**
-!/waypaper/
-!/waypaper/**
 !/quickshell/
 !/quickshell/**
-!/ags/
-!/ags/**
+
+# ignore these again
+quickshell/.qmlls.ini
+/hypr/hyprland-color.conf
